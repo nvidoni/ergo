@@ -13,4 +13,4 @@ If you would like to use custom TinyMCE theme created for this template, follow 
 
 1. Download TinyMCE Ergo theme from https://github.com/nvidoni/ergo-tinymce
 2. Copy "ergo" folder to /wire/modules/Inputfield/InputfieldTinyMCE/tinymce-3.4.7/themes/advanced/skins/ folder
-3. Open /wire/modules/Inputfield/InputfieldTinyMCE/InputfieldTinyMCE.js and edit line 10 to skin: "ergo"
+3. Open /site/templates-admin/default.php and change in line 86 "default" to "ergo"
