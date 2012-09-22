@@ -13,14 +13,16 @@ $searchForm = $user->hasPermission('page-edit') ? $modules->get('ProcessPageSear
 $bodyClass = $input->get->modal ? 'modal' : '';
 if(!isset($content)) $content = '';
 
-$config->styles->prepend($config->urls->adminTemplates . "styles/main.css"); 
-$config->styles->append($config->urls->adminTemplates . "styles/ui.css");
+$config->styles->prepend($config->urls->adminTemplates . "styles/main.css?v=2");
+$config->styles->append($config->urls->adminTemplates . "styles/inputfields.css");
+$config->styles->append($config->urls->adminTemplates . "styles/ui.css?v=2");
 $config->scripts->append($config->urls->adminTemplates . "scripts/jquery.cookie.js");
 $config->scripts->append($config->urls->adminTemplates . "scripts/jquery.tiptip.js");
-$config->scripts->append($config->urls->adminTemplates . "scripts/main.js");
+$config->scripts->append($config->urls->adminTemplates . "scripts/inputfields.js");
+$config->scripts->append($config->urls->adminTemplates . "scripts/main.js?v=2");
 
 $browserTitle = wire('processBrowserTitle'); 
-if(!$browserTitle) $browserTitle = __(strip_tags($page->get('title|name')), __FILE__) . ' &bull; ProcessWire';
+if(!$browserTitle) $browserTitle = __(strip_tags($page->get('title|name')), __FILE__) . ' :: ProcessWire';
 
 /*
  * Dynamic phrases that we want to be automatically translated
@@ -76,6 +78,13 @@ if(!$browserTitle) $browserTitle = __(strip_tags($page->get('title|name')), __FI
 	<![endif]-->
 
 	<?php foreach($config->scripts->unique() as $file) echo "\n\t<script type='text/javascript' src='$file'></script>"; ?>
+
+	<script>
+		// overwrite TinyMCE skin setting globally
+		// as defined in /wire/modules/Inputfields/InputfieldTinyMCE/InputfieldTinyMCE.js
+		// and loaded before
+		if('undefined' != typeof InputfieldTinyMCEConfigDefaults) InputfieldTinyMCEConfigDefaults.skin = "default";
+	</script>
 
 </head>
 
@@ -173,7 +182,7 @@ if(!$browserTitle) $browserTitle = __(strip_tags($page->get('title|name')), __FI
                 <!-- Menu
                 -------------------------------------------------------------------->
                 
-                <ul id="nav" class="accordion">
+                <ul id="nav" class="menu accordion">
                     <?php include($config->paths->templatesAdmin . "topnav.inc"); ?>
                 </ul>
     
@@ -261,7 +270,7 @@ if(!$browserTitle) $browserTitle = __(strip_tags($page->get('title|name')), __FI
                         
                         <div id="left">
                             
-                            <a href="http://www.processwire.com">ProcessWire <?php echo $config->version . '.' . $config->systemVersion; ?></a> <span>/</span> Copyright &copy; <?php echo date("Y"); ?> by Ryan Cramer
+                            <a href="http://www.processwire.com">ProcessWire <?php echo $config->version . ' <!--v' . $config->systemVersion; ?>--></a> <span>/</span> Copyright &copy; <?php echo date("Y"); ?> by Ryan Cramer
                         
                         </div>
                         

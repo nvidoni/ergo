@@ -14,8 +14,8 @@ $(document).ready(function() {
         }
     });
 	
-	var fullWidth = {'width' : '1280px'}
-	var minWidth = {'width' : '1080px'}
+	var fullWidth = {'width' : '1100px'}
+	var minWidth = {'width' : '900px'}
 
 	// Collapsible Sidebar //
     if ($.cookie("sidebar") == "collapsed") {
@@ -52,9 +52,9 @@ $(document).ready(function() {
 
 	function accordion() {
 		
-		$('#nav ul').hide();
+		$('ul.menu ul').hide();
 		
-		$.each($('#nav'), function(){
+		$.each($('ul.menu'), function(){
 			
 			var cookie = $.cookie(this.id);
 			
@@ -65,7 +65,7 @@ $(document).ready(function() {
 			}
 		});
 	
-	$('#nav li a').click(function() {
+	$('ul.menu li a').click(function() {
 	
 		var checkElement = $(this).next();
 		var parent = this.parentNode.parentNode.id;
@@ -101,22 +101,6 @@ $(document).ready(function() {
 
 	accordion();
 
-	// setup the toggles for Inputfields and the animations that occur between opening and closing
-	$(".Inputfields > li > label.ui-widget-header").addClass("InputfieldStateToggle")
-		.prepend("<span class='ui-icon ui-icon-carat-1-s'></span>")
-		.click(function() {
-			var $li = $(this).parent('li'); 	
-			$li.toggleClass('InputfieldStateCollapsed', 100);
-			$(this).children('span.ui-icon').toggleClass('ui-icon-carat-1-e ui-icon-carat-1-s'); 
-			$li.children('.ui-widget-header').effect('highlight', {color:"#fff"}, 300); 
-			return false;
-		})
-
-	// use different icon for open and closed
-	$(".Inputfields .InputfieldStateCollapsed > label.ui-widget-header span.ui-icon")
-		.removeClass('ui-icon-carat-1-s').addClass('ui-icon-carat-1-e'); 
-
-
 	// if there are buttons in the format "a button" without ID attributes, copy them into the masthead
 	// or buttons in the format button.head_button_clone with an ID attribute.
 	var $buttons = $("#content a[id=] button[id=], #content button.head_button_clone[id!=]"); 
@@ -144,7 +128,7 @@ $(document).ready(function() {
 	// make buttons with <a> tags click to the href of the <a>
 	$("a > button").click(function() {
 		window.location = $(this).parent("a").attr('href'); 
-	}); 
+	});
 
 	// we don't even want to go there
 	if($.browser.msie && $.browser.version < 8) {
@@ -156,6 +140,9 @@ $(document).ready(function() {
 		var $t = $(this); 
 		if(!$t.val() && !$t.is(".no_focus")) $t.focus();	
 	});
+
+	/// for FOUC fix
+	jQuery('#content').removeClass('fouc_fix'); 
 
 	$('#top a').click(function () {
 		$('body,html').animate({
@@ -182,7 +169,5 @@ $(document).ready(function() {
 			}
 		}, 200);
 	}
-	
-	jQuery('#content').removeClass('fouc_fix');
 
 });

@@ -16,29 +16,13 @@
  *
  */
 
-#fieldgroupContext {
-	top: 100px;
-	right: 120px;
-	z-index: 99999;
-}
-
-#fieldgroupContextSelect {
-	margin: 0 0 0 5px;
-	padding: 5px;
-	border: 1px solid #ebebeb;
-	color: #5f5f5f;
-}
-
-#fieldgroupContextSelect:focus {
-	border: 1px solid #e1e1e1;
-	box-shadow: rgba(0,0,0, 0.10) 0px 0px 4px;  
-	-moz-box-shadow: rgba(0,0,0, 0.10) 0px 0px 4px;  
-	-webkit-box-shadow: rgba(0,0,0, 0.10) 0px 0px 4px;  
-	outline: none;
-}
-
 .ui-icon {
 	float: left; 
+}
+
+label.ui-widget-header + div.ui-widget-content {
+	/* remove doubled border between header/content on ui-widgets */
+	border-top: none;
 }
 
 #notices .ui-state-highlight,
@@ -59,32 +43,36 @@
 	border: none;
 }
 
-	#notices .ui-state-error pre {
-		font-size: 11px; 
-		margin: 6px 0;
-	}
+#notices .ui-state-error pre {
+	font-size: 11px; 
+	margin: 6px 0;
+}
 
-	#notices .ui-icon {
-		position: relative;
-		top: 2px;
-		margin-right: 8px;
-		width: 17px;
-		height: 16px;
-		display: block;
-	}
+#notices .ui-icon {
+	position: relative;
+	top: 2px;
+	margin-right: 8px;
+	width: 17px;
+	height: 16px;
+	display: block;
+}
 
-	#notices .ui-state-highlight .ui-icon {
-		background: url(images/notices.png) 0 0 no-repeat;
-	}
-	
-	#notices .ui-state-error .ui-icon {
-		background: url(images/notices.png) 0 -16px no-repeat;
-	}
+#notices .ui-state-highlight .ui-icon {
+	background: url(images/notices.png) 0 0 no-repeat;
+}
 
-	#notices p {
-		padding: 0;
-		margin: 0;
-	}
+#notices .ui-state-error .ui-icon {
+	background: url(images/notices.png) 0 -16px no-repeat;
+}
+
+#notices p {
+	padding: 0;
+	margin: 0;
+}
+
+p span.ui-state-error {
+	padding: 0.25em 0.5em;
+}
 
 .ui-dialog .ui-dialog-content {
 	padding: 0; 
@@ -94,223 +82,33 @@
 	background: #000; 
 }
 
-
-/****************************************************************************************
- * Theme specific Inputfield module overrides
- *
- */
-
-.Inputfields {
+.ui-button {
+	margin: 0 4px 0 0;
+	padding: 7px 11px; 
+	font-size: 12px;
+	font-weight: bold !important; 
+	background: #6ec315 !important;
+	border: none !important;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px; 
+	cursor: pointer;
 }
 
-	.Inputfields,
-	.Inputfields li,
-	.Inputfields input,
-	.Inputfields select,
-	.Inputfields textarea {
-		font-size: 12px; 
-	}
+.ui-button:hover {
+	background: #0170c1 !important; 
+	color: #fff;
+	border: none;
+}
 
-	.Inputfields input,
-	.Inputfields select,
-	.Inputfields textarea {
-		padding: 5px;
-		border: 1px solid #ebebeb;
-		color: #5f5f5f;
-	}
+p > a > .ui-button {
+	font-size: 12px;
+}
 
-	.Inputfields input:focus,
-	.Inputfields select:focus,
-	.Inputfields textarea:focus {
-		border: 1px solid #e1e1e1;
-		box-shadow: rgba(0,0,0, 0.10) 0px 0px 4px;  
-		-moz-box-shadow: rgba(0,0,0, 0.10) 0px 0px 4px;  
-		-webkit-box-shadow: rgba(0,0,0, 0.10) 0px 0px 4px;  
-		outline: none;
-	}
-
-	.Inputfields > li > div.ui-widget-content {
-		padding: 12px; 
-	}
-
-	.Inputfields .ui-widget-header {
-		padding: 4px 0 4px 11px; 
-		-webkit-user-select: none;
-		-khtml-user-select: none;
-		-moz-user-select: none;
-		-o-user-select: none;
-		user-select: none;
-	}
-
-		.Inputfields .InputfieldStateToggle span.ui-icon {
-			float: right; 
-			padding-right: 0.25em; 
-		}
-
-	.Inputfields > li {
-		display: block;
-		margin: 1em 0;
-		clear: both; 
-	}
-
-	.Inputfields > li.InputfieldColumnWidth {
-		float: left; 
-		clear: none; 
-		margin-top: 0; 
-		margin-left: 1%; 
-	}
-		.Inputfields li.InputfieldColumnWidthFirst {
-			clear: both; 
-			margin-left: 0; 
-		}
-
-	.Inputfields > li:first-child {
-		margin-top: 0;
-	}
-
-	.Inputfields > li > .ui-widget-content *:last-child {
-		margin-bottom: 0;
-	}
-		.Inputfields > li > .ui-widget-content ul.ui-helper-clearfix:last-child {
-			margin-bottom: -1em; 
-		}
-
-	.Inputfields > li > .ui-widget-content > p,
-	.Inputfields > li > .ui-widget-content > div > p {
-		margin-top: 0; 
-	}
-		.Inputfields > li > .ui-widget-content > p:last-child {
-			margin-bottom: 0; 
-		}
-
-	.Inputfields > li > .ui-widget-content > .Inputfields > li {
-		margin-top: 0; 
-	}
-		.Inputfields > li > .ui-widget-content > .Inputfields > li:first-child {
-			margin-top: 0; 
-		}
-		.Inputfields li > .ui-widget-content > .Inputfields > li:last-child {
-			margin-bottom: 0;
-		}
-
-	.Inputfields > li .notes {
-		margin-bottom: 0; 
-	}
-		.Inputfields > li > .ui-widget-content input + p.notes {
-			margin-top: 1em; 
-		}
-
-	.Inputfields .InputfieldHidden {
-		display: none; 
-	}
-
-	.Inputfields .InputfieldSubmit,
-	.Inputfields .InputfieldButton {
-		clear: none; 
-	}
-		.Inputfields .InputfieldSubmit .ui-widget-content,
-		.Inputfields .InputfieldButton .ui-widget-content {
-			padding: 0; 
-			background: none; 
-			border: none; 
-		}
-
-		.Inputfields .InputfieldSubmit .ui-widget-header,
-		.Inputfields .InputfieldButton .ui-widget-header {
-			display: none; 
-		}
-
-		.ui-button {
-			margin: 0 4px 0 0;
-			padding: 7px 11px; 
-			font-size: 12px;
-			font-weight: bold !important; 
-			background: #6ec315 !important;
-			border: none !important;
-			-webkit-border-radius: 3px;
-			-moz-border-radius: 3px;
-			border-radius: 3px; 
-			cursor: pointer;
-		}
-		
-		.ui-button:hover {
-			background: #0170c1 !important; 
-			color: #fff;
-			border: none;
-		}
-
-		p > a > .ui-button {
-			font-size: 12px;
-		}
-
-		a .ui-button {
-			display: block;
-		}
-
-		button.ui-datepicker-trigger {
-			margin: 0 0 0 0.5em;
-		}
-			#ui-datepicker-div {
-				display: none; 
-			}
-
-
-	.Inputfields .InputfieldCheckboxes input,
-	.Inputfields .InputfieldRadios input {
-		margin-right: 0.25em; 
-	}
-		.Inputfields .InputfieldCheckboxes li,
-		.Inputfields .InputfieldRadios li {
-			margin: 0; 
-		}
-
-	.Inputfields .InputfieldCheckbox {
-	}
-		.Inputfields .InputfieldCheckbox .notes,
-		.Inputfields .InputfieldCheckboxes .notes,
-		.Inputfields .InputfieldRadios .notes {
-			margin-top: 1em; 
-		}
-
-
-	.Inputfields label {
-		display: block;
-	}
-
-	.Inputfields textarea, 
-	.InputfieldMaxWidth {
-		width: 99%; 
-	}
-
-		.Inputfields textarea {
-			display: block;
-		}
-
-	.Inputfields .InputfieldStateToggle {
-		cursor: pointer;
-	}
-
-		.Inputfields > .InputfieldStateCollapsed {
-		}
-
-			.Inputfields > .InputfieldStateCollapsed .ui-widget-header {
-				opacity: 0.6; 
-			}
-			.Inputfields > .InputfieldStateCollapsed .ui-widget-header:hover {
-				opacity: 1.0; 
-			}
-
-			.Inputfields > .InputfieldStateCollapsed .ui-widget-content {
-				display: none;
-			}
-
-			.Inputfields > .InputfieldStateCollapsed .InputfieldStateToggle {
-			}
-
-	.InputfieldPageNameURL {
-		font-family: Monaco, Courier, Monaco, monospace; 
-	}
-
+a .ui-button {
+	display: block;
+	font-size: 12px;
+}
 
 /***********************************************************************************************
  * Theme Specific Pagination Markup
