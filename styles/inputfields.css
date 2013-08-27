@@ -256,3 +256,12 @@
 .InputfieldRenderValueMode .InputfieldButton {
 	display: none; 
 }
+
+/****************************************************************************
+ * Repeater Field
+ *
+ */
+
+.InputfieldRepeater .InputfieldStateToggle.ui-state-error .InputfieldRepeaterTrash {
+	background-image: url('JqueryUI/images/ui-icons-dark.png');
+	}
