@@ -90,8 +90,7 @@
 
 .Inputfields .ui-widget-header {
 	/* typically the Inputfield's <label> */
-	padding: 4px 5px 4px 12px; 
-	background: #f7f7f7;
+	padding: 4px 5px 4px 12px;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
 	-moz-user-select: none;
@@ -257,3 +256,12 @@
 .InputfieldRenderValueMode .InputfieldButton {
 	display: none; 
 }
+
+/****************************************************************************
+ * Repeater Field
+ *
+ */
+
+.InputfieldRepeater .InputfieldStateToggle.ui-state-error .InputfieldRepeaterTrash {
+	background-image: url('JqueryUI/images/ui-icons-dark.png');
+	}
